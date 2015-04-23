@@ -1,0 +1,28 @@
+<p>
+  <strong>Term:</strong>
+  <%= @teaching.term %>
+</p>
+<p>
+  <strong>Course:</strong>
+  <%= (@course = Course.find(@teaching.course_id)).name %> 
+</p>
+<p>
+  <strong>DropBox:</strong>
+  <%= @course.dropbox %> 
+</p>
+<p>
+  <strong>News:</strong>
+  <%= @course.news %> 
+</p>
+<p>
+  <strong>Quiz:</strong>
+  <%= @course.quiz %> 
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @course.content %> 
+</p>
+<% if can? :update, Teaching %> 
+  <%= link_to 'Edit', edit_teaching_path(@teaching) %> |
+<% end %> 
+<%= link_to 'Back', teachings_path %>

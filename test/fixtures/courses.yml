@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  dropbox: MyString
+  news: MyString
+  content: MyString
+  quiz: MyString
+  number: 
+  section: 1
+  enrollment: 1
+  maxenrollment: 1
+  location: MyString
+  description: MyString
+  type: 1
+
+two:
+  name: MyString
+  dropbox: MyString
+  news: MyString
+  content: MyString
+  quiz: MyString
+  number: 
+  section: 1
+  enrollment: 1
+  maxenrollment: 1
+  location: MyString
+  description: MyString
+  type: 1

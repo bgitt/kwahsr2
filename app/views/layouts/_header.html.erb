@@ -1,0 +1,71 @@
+<div class="navbar-wrapper">
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button class="active">
+          <%= link_to "Kwahsr", root_path, :class => "navbar-brand"%> 
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ISIS <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to "ISIS Home", isis_index_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Courses", courses_path %></li>
+                  <li><%= link_to "Departments", departments_path %></li>
+                  <li><%= link_to "Colleges", colleges_path %></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ICON <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to "ICON Home", icon_index_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "My Classes", teachings_path %></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Library <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to "Library Home", library_index_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Books", books_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+              <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <% end %>
+            </li>
+          </ul>
+          <% if !user_signed_in? %>
+          <div class="navbar-form navbar-right">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-group">
+              <%= f.text_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Email' %>
+             </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :placeholder => 'Password' %>
+            </div>
+            <%= f.submit "Log in", :class => 'btn btn-warning' %>
+          <% end %>
+          </div>
+          <% else %>
+          <div class="navbar-form navbar-right">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-warning'  %>
+        </div>
+          <% end %>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+</div>

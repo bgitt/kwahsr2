@@ -1,0 +1,44 @@
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @course.number %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @course.section %>
+</p>
+
+<p>
+  <strong>Enrollment:</strong>
+  <%= @course.enrollment %>
+</p>
+
+<p>
+  <strong>Maxenrollment:</strong>
+  <%= @course.maxenrollment %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @course.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Course Type:</strong>
+  <%= @course.coursetype %>
+</p>
+
+<%= link_to 'Enroll', teachings_path(:teaching => {:course_id => @course.id, :user_id => current_user.id, :term => "Spring 2015"}), method: :post %>
+<br> 
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
