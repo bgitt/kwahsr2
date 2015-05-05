@@ -7,8 +7,11 @@ class User < ActiveRecord::Base
 
   before_save :assign_role
 
-	has_many :teachings
+  has_many :teachings
   has_many :courses, :through => :teachings
+
+  has_many :borrows
+  has_many :books, :through => :borrows
 
 	def assign_role
 	  self.role = Role.find_by name: "Student" if self.role.nil?

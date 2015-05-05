@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :borrows
+
   get 'library/index'
 
   get 'isis/index'
